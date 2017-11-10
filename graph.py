@@ -85,7 +85,6 @@ class graph:
         return
 
 
-
     def create_network(self, source, target, weight):
 
         self.graph = nx.DiGraph()
@@ -97,6 +96,10 @@ class graph:
             edges.append( (source[i], target[i], weight[i]) )
 
         self.graph.add_weighted_edges_from(edges)
+        return self.graph
+
+    def random_network(self):
+        #To do
         return self.graph
 
     def setGraph(self, g):
@@ -112,3 +115,6 @@ class graph:
                 retorno.append([ n, nbr, data])
 
         return retorno
+
+    def getGraph(self):
+        return self.graph
