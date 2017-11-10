@@ -11,9 +11,10 @@ target = [2,3,4,4]
 weight = [1,2,4,1]
 
 G = g.graph()
-G.network(source, target, weight)
+G.create_network(source, target, weight)
 
 G.dijkstra()
+G.print_distances()
 
-
+G.floyd_warshall()
 G.print_distances()
