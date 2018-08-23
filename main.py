@@ -1,4 +1,4 @@
-import graph_pro as g
+import graphpro as g
 import os
 
 os.system('cls')
