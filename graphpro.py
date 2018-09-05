@@ -74,45 +74,23 @@ class GraphPro:
         self.vertex = np.unique(np.concatenate([vertex, vertex2]))
         return self.vertex
 
-    def set_dynamic_vertex(self, behavior, weights=[1, 2, 3, 4, 5, 6, 7, 8, 9]):
+    def dynamic_decreasing_random_vertex(self):
 
-        returned = 0
-        found_set = False
-
-        for source in self.vertex:
-            for target in self.vertex:
-                if source == target:
-                    continue
-
-                p = GraphPro.probability([0, 1], [0.5, 0.5])
-                if p == 0:
-                    continue
-
-                index = np.where(np.logical_and(self.source == source, self.target == target))
-
-                if index[0].size == 0 and (behavior == 'incremental' or behavior == 'full'):
-                    probabilities = np.zeros(len(weights))
-                    probabilities = probabilities + (1 / len(weights))
-                    w = GraphPro.probability(weights, probabilities)
-
-                    returned = self.incremental_vertex(source, target, w)
-                    found_set = True
-
-                elif index[0].size > 0 and (behavior == 'decreasing' or behavior == 'full'):
-                    returned = self.decreasing_vertex(source, target)
-                    found_set = True
-
-                if found_set:
-                    break
-            if found_set:
+        count_max = 100
+        flag = 0
+        while True:
+            source = np.random.choice(self.vertex, 1)[0]
+            choisen = self.target[source == self.source]
+            if choisen.size != 0:
+                target = np.random.choice(choisen, 1)[0]
                 break
+            flag = flag + 1
+            if flag >= count_max:
+                return -2
 
-        if found_set is False:
-            return self.set_dynamic_vertex(behavior, weights)
+        return self.dynamic_decreasing_vertex(source, target)
 
-        return returned
-
-    def decreasing_vertex(self, source, target):
+    def dynamic_decreasing_vertex(self, source, target):
 
         index = np.where(np.logical_and(self.source == source, self.target == target))[0][0]
         returned = np.array([])
@@ -123,9 +101,30 @@ class GraphPro:
         self.target = np.delete(self.target, index)
         returned = np.append(returned, target)
 
+        self.weight = np.delete(self.weight, index)
+
         return returned
 
-    def incremental_vertex(self, source, target, weight):
+    def dynamic_incremental_random_vertex(self, weights=[1, 2, 3, 4, 5, 6, 7, 8, 9]):
+
+        count_max = 100
+        flag = 0
+        while True:
+            source = np.random.choice(self.vertex, 1)[0]
+            index_for_target = np.invert(np.logical_or(np.in1d(self.vertex, self.target[source == self.source]), self.vertex == source))
+
+            choisen = self.vertex[index_for_target]
+            if choisen.size != 0:
+                target = np.random.choice(choisen, 1)[0]
+                break
+            flag = flag + 1
+            if flag >= count_max:
+                return -2
+
+        w = np.random.choice(weights)
+        return self.dynamic_incremental_vertex(source, target, w)
+
+    def dynamic_incremental_vertex(self, source, target, weight=1):
 
         returned = np.array([])
         self.source = np.append(self.source, source)
