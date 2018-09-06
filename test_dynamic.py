@@ -1,11 +1,11 @@
-import graphpro as g
+from _graph.GraphPro import GraphPro as g
 import os
 
 os.system('clear')
 print("<--------Test Create------->\n")
 
 weights = [1, 2, 3, 4, 5]
-graph = g.GraphPro.creategraph(5, .4, weights)
+graph = g.creategraph(5, .4, weights)
 graph.print_r()
 print(graph.apsp_dijkstra())
 

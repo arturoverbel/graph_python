@@ -1,5 +1,5 @@
 import numpy as np
-from GraphAPSP import GraphAPSP
+from _graph.GraphAPSP import GraphAPSP
 
 
 class GraphPro(GraphAPSP):

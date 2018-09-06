@@ -1,5 +1,5 @@
 import numpy as np
-from DynamicGraph import DynamicGraph
+from _graph.DynamicGraph import DynamicGraph
 
 
 class GraphAPSP(DynamicGraph):
