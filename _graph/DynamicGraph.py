@@ -3,8 +3,8 @@ from _graph.Graph import Graph
 
 
 class DynamicGraph(Graph):
-    def __init__(self, source=[], target=[], weight=[], vertex=[]):
-        Graph.__init__(self, source, target, weight)
+    def __init__(self, source=[], target=[], weight=[], directed=True):
+        Graph.__init__(self, source, target, weight, directed)
 
     def dynamic_decreasing_random_vertex(self):
 

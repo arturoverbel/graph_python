@@ -4,18 +4,18 @@ from _graph.GraphAPSP import GraphAPSP
 
 class GraphPro(GraphAPSP):
 
-    def __init__(self, source=[], target=[], weight=[]):
-        GraphAPSP.__init__(self, source, target, weight)
+    def __init__(self, source=[], target=[], weight=[], directed=True):
+        GraphAPSP.__init__(self, source, target, weight, directed)
 
     @staticmethod
-    def creategraph(total_nodes, pro_edges, weights):
+    def creategraph(total_nodes, pro_edges, weights, directed=True):
 
         source = np.array([])
         target = np.array([])
         weight = np.array([])
 
         for i in range(total_nodes):
-            for k in range(total_nodes):
+            for k in range(i+1, total_nodes):
                 if k == i:
                     continue
 
@@ -33,4 +33,11 @@ class GraphPro(GraphAPSP):
                 target = np.append(target, k)
                 weight = np.append(weight, w)
 
+                if not directed:
+                    source = np.append(source, k)
+                    target = np.append(target, i)
+                    weight = np.append(weight, w)
+
         return GraphPro(source, target, weight)
+
+

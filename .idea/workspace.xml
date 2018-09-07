@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dec67f83-9480-4e04-a2a2-88b0883d90f6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/GraphTest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_many_dynamic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/just_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_dynamic.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_dynamic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_graph/DynamicGraph.py" beforeDir="false" afterPath="$PROJECT_DIR$/_graph/DynamicGraph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_graph/Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/_graph/Graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_graph/GraphAPSP.py" beforeDir="false" afterPath="$PROJECT_DIR$/_graph/GraphAPSP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_graph/GraphPro.py" beforeDir="false" afterPath="$PROJECT_DIR$/_graph/GraphPro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_many_dynamic.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_many_dynamic.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,20 +21,11 @@
       <content type="file-editors">
         <state>
           <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="false">
+            <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/_graph/Graph.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="289">
-                    <caret line="17" selection-start-line="17" selection-end-line="17" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/_graph/DynamicGraph.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-72">
-                    <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+                  <state relative-caret-position="291">
+                    <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
                     <folding>
                       <element signature="e#0#18#0" expanded="true" />
                     </folding>
@@ -39,15 +33,26 @@
                 </provider>
               </entry>
             </file>
-            <file pinned="false" current-in-tab="true">
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/_graph/DynamicGraph.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="527">
+                    <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+                    <folding>
+                      <element signature="e#0#18#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/GraphTest.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="240">
-                    <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+                  <state relative-caret-position="539">
+                    <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
                     <folding>
                       <element signature="e#0#41#0" expanded="true" />
                       <marker date="1536291006102" expanded="true" signature="101:107" ph="..." />
-                      <marker date="1536291006102" expanded="true" signature="828:1145" ph="..." />
                     </folding>
                   </state>
                 </provider>
@@ -62,43 +67,43 @@
     <session id="153942889">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="15" />
           <entry key="dummy" value="16" />
-          <entry key="py" value="4641" />
+          <entry key="py" value="5574" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="16" />
-          <entry key="Python" value="4656" />
+          <entry key="Python" value="5589" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="ipynb" value="1" />
-          <entry key="py" value="18" />
+          <entry key="py" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IPNB" value="1" />
-          <entry key="Python" value="18" />
+          <entry key="Python" value="19" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.52663076">
+    <splitter split-orientation="horizontal" split-proportion="0.4260036">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -114,10 +119,22 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/just_test.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="289">
+                  <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test_many_dynamic.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+                <state relative-caret-position="255">
+                  <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -132,8 +149,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/_graph/GraphPro.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+                <state relative-caret-position="442">
+                  <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -144,8 +161,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_graph/GraphAPSP.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+                <state relative-caret-position="357">
+                  <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -192,6 +209,11 @@
         <option value="$PROJECT_DIR$/test_dynamic.py" />
         <option value="$PROJECT_DIR$/GraphTest.py" />
         <option value="$PROJECT_DIR$/test_many_dynamic.py" />
+        <option value="$PROJECT_DIR$/_graph/GraphAPSP.py" />
+        <option value="$PROJECT_DIR$/_graph/DynamicGraph.py" />
+        <option value="$PROJECT_DIR$/just_test.py" />
+        <option value="$PROJECT_DIR$/_graph/Graph.py" />
+        <option value="$PROJECT_DIR$/_graph/GraphPro.py" />
       </list>
     </option>
   </component>
@@ -230,13 +252,13 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="D:\Arturo\Universidad\Distrital\Investigación\graph_python" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/_graph" />
       <recent name="$PROJECT_DIR$/graph" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="D:\Arturo\Universidad\Distrital\Investigación\graph_python" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -317,7 +339,7 @@
     <frame x="1365" y="0" width="1922" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10832444" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.109391674" />
       <window_info id="Structure" order="1" weight="0.2497332" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -377,40 +399,13 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py" />
-    <entry file="file://$PROJECT_DIR$/_graph/DynamicGraph.py">
+    <entry file="file://$PROJECT_DIR$/test_many_dynamic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
-          <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+        <state relative-caret-position="255">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_graph/GraphAPSP.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_graph/GraphPro.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_graph/Graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -426,22 +421,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GraphTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+        <state relative-caret-position="539">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <marker date="1536291006102" expanded="true" signature="101:107" ph="..." />
-            <marker date="1536291006102" expanded="true" signature="828:1145" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_many_dynamic.py">
+    <entry file="file://$PROJECT_DIR$/_graph/GraphAPSP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        <state relative-caret-position="357">
+          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_graph/DynamicGraph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_graph/Graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/just_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_graph/GraphPro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

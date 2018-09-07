@@ -4,8 +4,8 @@ from _graph.DynamicGraph import DynamicGraph
 
 class GraphAPSP(DynamicGraph):
 
-    def __init__(self, source=[], target=[], weight=[]):
-        DynamicGraph.__init__(self, source, target, weight)
+    def __init__(self, source=[], target=[], weight=[], directed=True):
+        DynamicGraph.__init__(self, source, target, weight, directed)
 
     def sssp_dijkstra(self, source):
 
