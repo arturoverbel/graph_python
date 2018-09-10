@@ -46,3 +46,25 @@ class GraphAPSP(DynamicGraph):
 
         return result
 
+    def floyd_warshall(self):
+
+        total_vertex = len(self.vertex)
+        dist = np.zeros((total_vertex, total_vertex))
+        dist.fill(np.inf)
+
+        for idx in range(self.source.size):
+            index_s = self.vertex == self.source[idx]
+            index_t = self.vertex == self.target[idx]
+            dist[index_s, index_t] = self.weight[idx]
+        for index in range(self.vertex.size):
+            dist[index, index] = 0
+
+        for i in range(self.vertex.size):
+            for j in range(self.vertex.size):
+                for k in range(self.vertex.size):
+                    if dist[i, j] > dist[i, k] + dist[k, j]:
+                        dist[i, j] = dist[i, k] + dist[k, j]
+
+        return dist
+
+

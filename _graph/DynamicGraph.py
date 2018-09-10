@@ -5,6 +5,7 @@ from _graph.Graph import Graph
 class DynamicGraph(Graph):
     def __init__(self, source=[], target=[], weight=[], directed=True):
         Graph.__init__(self, source, target, weight, directed)
+        self.last_vertex_modified = np.array([])
 
     def dynamic_decreasing_random_vertex(self):
 
@@ -34,6 +35,8 @@ class DynamicGraph(Graph):
         returned = np.append(returned, target)
 
         self.weight = np.delete(self.weight, index)
+
+        self.last_vertex_modified = returned
 
         return returned
 
@@ -65,5 +68,7 @@ class DynamicGraph(Graph):
         returned = np.append(returned, target)
         self.weight = np.append(self.weight, weight)
         returned = np.append(returned, weight)
+
+        self.last_vertex_modified = returned
 
         return returned

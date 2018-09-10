@@ -1,5 +1,7 @@
-import numpy as np
 from _graph.GraphAPSP import GraphAPSP
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
 
 
 class GraphPro(GraphAPSP):
@@ -40,4 +42,25 @@ class GraphPro(GraphAPSP):
 
         return GraphPro(source, target, weight)
 
+    def draw(self, with_weight=True):
+        Gr = nx.DiGraph()
+        Gr.add_weighted_edges_from(self.export())
+        pos = nx.spring_layout(Gr)
+        list_edges = list(Gr.edges())
+        last = ()
 
+        if self.last_vertex_modified.size > 0:
+            last = (int(self.last_vertex_modified[0]), int(self.last_vertex_modified[1]) )
+            list_edges.remove(last)
+
+        nx.draw(Gr, pos=pos, with_labels=True, edgelist=list_edges, node_size=600)
+
+        if with_weight:
+            edge_labels = dict([((u, v,), d['weight']) for u, v, d in Gr.edges(data=True)])
+            nx.draw_networkx_edge_labels(Gr, pos=pos, edgelist=list_edges, edge_labels=edge_labels)
+
+        if len(last) > 0:
+            nx.draw_networkx_edges(Gr, pos=pos, edgelist=[last], width=2.0, edge_color='b')
+
+        plt.axis('off')
+        plt.show()
