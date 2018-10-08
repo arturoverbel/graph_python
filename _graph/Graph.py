@@ -30,6 +30,8 @@ class Graph:
         return self.vertex
 
     def get_weight(self, n1, n2):
+        if n1 == n2:
+            return 0
         return self.weight[np.logical_and(self.source == n1, self.target == n2)]
 
     def export(self):

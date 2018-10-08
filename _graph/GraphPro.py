@@ -42,6 +42,31 @@ class GraphPro(GraphAPSP):
 
         return GraphPro(source, target, weight)
 
+    def dijkstra_truncated(self, dist):
+        dist_s = dist
+        v = self.last_vertex_modified[1]
+        u = self.last_vertex_modified[0]
+        w_uv = self.last_vertex_modified[2]
+
+        if dist_s[self.vertex == v] <= dist_s[self.vertex == u] + w_uv:
+            return
+
+        dist_s[self.vertex == v] = dist_s[self.vertex == u] + w_uv
+        PQ = {v: dist_s[v]}
+
+        while len(PQ) > 0:
+            (y, weight) = min(PQ.items(), key=lambda x: x[1])
+            PQ.pop(y)
+            for w in self.target[self.source == y]:
+                if dist_s[self.vertex == w] <= weight + self.get_weight(y, w):
+                    continue
+
+                new_weight = weight + self.get_weight(y, w)
+                dist_s[self.vertex == w] = new_weight
+                PQ[w] = new_weight
+
+        return dist_s
+
     def draw(self, with_weight=True):
         Gr = nx.DiGraph()
         Gr.add_weighted_edges_from(self.export())
