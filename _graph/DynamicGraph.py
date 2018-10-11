@@ -75,7 +75,7 @@ class DynamicGraph(Graph):
 
     def vertex_update(self, source, target, weight=1):
         self.weight[np.logical_and(self.source == source, self.target == target)] = weight
-        if self.undirected == 1:
+        if not self.directed:
             self.weight[np.logical_and(self.source == target, self.target == source)] = weight
 
         self.last_vertex_modified = np.array([source, target, weight])

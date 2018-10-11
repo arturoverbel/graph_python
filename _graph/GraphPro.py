@@ -5,7 +5,6 @@ import numpy as np
 
 
 class GraphPro(GraphAPSP):
-
     def __init__(self, source=[], target=[], weight=[], directed=True):
         GraphAPSP.__init__(self, source, target, weight, directed)
 
@@ -42,10 +41,11 @@ class GraphPro(GraphAPSP):
 
         return GraphPro(source, target, weight)
 
-    def dijkstra_truncated(self, dist):
-        dist_s = dist
-        v = self.last_vertex_modified[1]
+    def dijkstra_truncated(self, dist_s):
+        dist_s[1] = 9
+        return
         u = self.last_vertex_modified[0]
+        v = self.last_vertex_modified[1]
         w_uv = self.last_vertex_modified[2]
 
         if dist_s[self.vertex == v] <= dist_s[self.vertex == u] + w_uv:
@@ -67,6 +67,32 @@ class GraphPro(GraphAPSP):
 
         return dist_s
 
+    def apsp_dijkstra_truncated(self, source, dist):
+        u = self.last_vertex_modified[0]
+        v = self.last_vertex_modified[1]
+        w_uv = self.last_vertex_modified[2]
+
+        if dist[self.vertex == source, self.vertex == v] <= dist[self.vertex == source, self.vertex == u] + w_uv:
+            return
+
+        dist[self.vertex == u, self.vertex == v] = dist[self.vertex == u, self.vertex == v] + w_uv
+
+        PQ = np.array([v])
+        vis = {v: True}
+
+        while len(PQ) > 0:
+            y, PQ = PQ[-1], PQ[:-1]
+            dist[self.vertex == source, self.vertex == y] = \
+                dist[self.vertex == source, self.vertex == u] + w_uv + dist[self.vertex == v, self.vertex == y]
+            for w in self.target[self.source == y]:
+                if (w not in vis or not vis[w]) \
+                        and dist[self.vertex == source, self.vertex == w] > \
+                        dist[self.vertex == source, self.vertex == u] + w_uv + dist[self.vertex == v, self.vertex == w]:
+                    vis[w] = True
+                    PQ = np.append(PQ, [w])
+
+        return dist
+
     def draw(self, with_weight=True):
         Gr = nx.DiGraph()
         Gr.add_weighted_edges_from(self.export())
@@ -75,7 +101,7 @@ class GraphPro(GraphAPSP):
         last = ()
 
         if self.last_vertex_modified.size > 0:
-            last = (int(self.last_vertex_modified[0]), int(self.last_vertex_modified[1]) )
+            last = (int(self.last_vertex_modified[0]), int(self.last_vertex_modified[1]))
             list_edges.remove(last)
 
         nx.draw(Gr, pos=pos, with_labels=True, edgelist=list_edges, node_size=600)
