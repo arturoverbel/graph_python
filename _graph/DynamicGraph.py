@@ -80,3 +80,22 @@ class DynamicGraph(Graph):
 
         self.last_vertex_modified = np.array([source, target, weight])
         return True
+
+    def vertex_update_random(self, weight=1):
+        count_max = 100
+        flag = 0
+        while True:
+            source = np.random.choice(self.vertex, 1)[0]
+            index_for_target = np.logical_or(np.in1d(self.vertex, self.target[source == self.source]), self.vertex == source)
+            choisen = self.vertex[index_for_target]
+
+            if choisen.size != 0:
+                target = np.random.choice(choisen, 1)[0]
+                if self.get_weight(source, target) > 1:
+                    break
+
+            flag = flag + 1
+            if flag >= count_max:
+                return -2
+
+        return self.vertex_update(source, target, weight=weight)
