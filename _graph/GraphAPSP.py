@@ -59,11 +59,15 @@ class GraphAPSP(DynamicGraph):
         for index in range(self.vertex.size):
             dist[index, index] = 0
 
-        for i in range(self.vertex.size):
-            for j in range(self.vertex.size):
-                for k in range(self.vertex.size):
-                    if dist[i, j] > dist[i, k] + dist[k, j]:
-                        dist[i, j] = dist[i, k] + dist[k, j]
+        for k in np.nditer(self.vertex):
+            for i in np.nditer(self.vertex):
+                for j in np.nditer(self.vertex):
+                    index_k = self.vertex == k
+                    index_i = self.vertex == i
+                    index_j = self.vertex == j
+
+                    if dist[index_i, index_j] > dist[index_i, index_k] + dist[index_k, index_j]:
+                        dist[index_i, index_j] = dist[index_i, index_k] + dist[index_k, index_j]
 
         return dist
 
