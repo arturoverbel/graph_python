@@ -42,6 +42,17 @@ class GraphPro(GraphRR):
 
         return GraphPro(source, target, weight)
 
+    def kk_incremental(self, dist):
+        dist = np.array(dist)
+        u = self.last_vertex_modified[0]
+        v = self.last_vertex_modified[1]
+        w_uv = self.last_vertex_modified[2]
+
+        #t1 = self.target[self.source == u]
+
+
+        return dist
+
     def draw(self, with_weight=True):
         gr = nx.DiGraph()
         gr.add_weighted_edges_from(self.export())
