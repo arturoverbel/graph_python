@@ -6,6 +6,11 @@ class DynamicGraph(Graph):
     def __init__(self, source=[], target=[], weight=[], directed=True):
         Graph.__init__(self, source, target, weight, directed)
         self.last_vertex_modified = np.array([])
+        self.node_incremental = {
+            'node': None,
+            'source': np.array([]),
+            'target': np.array([]),
+        }
 
     def dynamic_decreasing_random_vertex(self):
 
@@ -72,6 +77,24 @@ class DynamicGraph(Graph):
         self.last_vertex_modified = returned
 
         return returned
+
+    def dynamic_incremental_node(self, node, sources, w_sources, targets, w_targets):
+
+        print(self.vertex == node)
+        if self.vertex[self.vertex == node].size > 0:
+            return -1
+
+        sources = np.array(sources)
+        targets = np.array(targets)
+        self.source = np.concatenate((self.source, sources, np.full(targets.size, node)))
+        self.target = np.concatenate((self.target, np.full(sources.size, node), targets))
+        self.weight = np.concatenate((self.weight, w_sources, w_targets))
+
+        self.node_incremental['node'] = node
+        self.node_incremental['source'] = sources
+        self.node_incremental['target'] = targets
+
+        return self.node_incremental
 
     def vertex_update(self, source, target, weight=1):
         self.weight[np.logical_and(self.source == source, self.target == target)] = weight
