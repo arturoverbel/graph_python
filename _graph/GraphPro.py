@@ -44,14 +44,58 @@ class GraphPro(GraphRR):
 
     def kk_incremental(self, dist):
         dist = np.array(dist)
-        u = self.last_vertex_modified[0]
-        v = self.last_vertex_modified[1]
-        w_uv = self.last_vertex_modified[2]
 
-        #t1 = self.target[self.source == u]
+        add = np.full(self.vertex.size-1, np.inf)
+        dist = np.vstack([dist, add])
+        dist = np.hstack([dist, np.append(add, np.inf)[:,None]])
 
+        z = self.node_incremental['node']
+        T1 = self.node_incremental['source']
+        T2 = self.node_incremental['target']
+
+        for k_in in T1:
+            dist[self.vertex == z, self.vertex == k_in] = self.get_weight(k_in, z)
+
+        for k_out in T2:
+            dist[self.vertex == k_out, self.vertex == z] = self.get_weight(z, k_out)
+
+        min_in_z = {}
+        min_out_z = {}
+
+        for v in self.vertex:
+            for k_in in T1:
+                if v == k_in:
+                    continue
+                L_vz = dist[self.vertex == v, self.vertex == k_in][0] + self.get_weight(k_in, z)
+                if v not in min_in_z or L_vz < min_in_z[v]:
+                    min_in_z[v] = L_vz
+            for k_out in T2:
+                if v == k_out:
+                    continue
+
+                L_zv = dist[self.vertex == k_out, self.vertex == v][0] + self.get_weight(z, k_out)
+                if v not in min_out_z or L_zv < min_out_z[v]:
+                    min_out_z[v] = L_zv
+
+        print(min_in_z)
+        print(min_out_z)
+        for i, L_iz in min_in_z.items():
+            for j, L_jz in min_out_z.items():
+                print('------------------')
+                print(i, ": ", L_iz)
+                print(j, ": ", L_jz)
+                print("actual: ", )
+                print(dist[self.vertex == i, self.vertex == j][0])
+                if L_iz + L_jz < dist[self.vertex == i, self.vertex == j][0]:
+                    print('Entro !!')
+                    dist[self.vertex == i, self.vertex == j] = L_iz + L_jz
+                print('------------------')
 
         return dist
+        for i, value in min_in_z.items():
+            dist[self.vertex == z, self.vertex == i] = value
+        for j, value in min_out_z.items():
+            dist[self.vertex == j, self.vertex == z] = value
 
     def draw(self, with_weight=True):
         gr = nx.DiGraph()

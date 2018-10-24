@@ -80,7 +80,6 @@ class DynamicGraph(Graph):
 
     def dynamic_incremental_node(self, node, sources, w_sources, targets, w_targets):
 
-        print(self.vertex == node)
         if self.vertex[self.vertex == node].size > 0:
             return -1
 
@@ -89,6 +88,7 @@ class DynamicGraph(Graph):
         self.source = np.concatenate((self.source, sources, np.full(targets.size, node)))
         self.target = np.concatenate((self.target, np.full(sources.size, node), targets))
         self.weight = np.concatenate((self.weight, w_sources, w_targets))
+        self.vertex = np.append(self.vertex, node)
 
         self.node_incremental['node'] = node
         self.node_incremental['source'] = sources

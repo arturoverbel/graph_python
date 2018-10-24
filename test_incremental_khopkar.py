@@ -3,7 +3,7 @@ from time import time
 import os
 
 os.system('clear')
-print("<--------Test Floyd-Warshall------->\n")
+print("<--------Test Khopkar------->\n")
 
 weights = [1, 2, 3, 4, 5]
 
@@ -20,6 +20,8 @@ print(dist)
 graph.dynamic_incremental_node(
     node=6, sources=[2], w_sources=[1], targets=[5], w_targets=[1])
 
-#dist_new = graph.kk_incremental(dist.tolist())
+dist_new = graph.kk_incremental(dist.tolist())
+print(dist_new)
 
-graph.draw()
+graph.print_r()
+#graph.draw()
