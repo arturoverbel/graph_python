@@ -20,7 +20,7 @@ print(dist)
 graph.dynamic_incremental_node(
     node=6, sources=[2], w_sources=[1], targets=[5], w_targets=[1])
 
-dist_new = graph.kk_incremental(dist.tolist())
+dist_new = graph.knnb_node_incremental(dist.tolist())
 print(dist_new)
 
 graph.print_r()
@@ -40,7 +40,7 @@ print(dist2)
 graph2.dynamic_incremental_node(
     node=13, sources=[1, 3], w_sources=[1, 1], targets=[2, 4], w_targets=[1, 1])
 
-dist2_new = graph2.kk_incremental(dist2.tolist())
+dist2_new = graph2.knnb_node_incremental(dist2.tolist())
 print(dist2_new)
 
 graph2.print_r()
