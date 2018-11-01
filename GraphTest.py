@@ -3,6 +3,7 @@ from time import time
 import numpy as np
 
 
+
 class GraphTest:
 
     def __init__(self, from_num_nodes=5, until_num_nodes=20, probability_edges=.5, num_tries=3000, weights=[1, 2, 3, 4, 5, 6]):
