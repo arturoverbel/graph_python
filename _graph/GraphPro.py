@@ -5,7 +5,7 @@ import numpy as np
 
 
 class GraphPro(GraphKNNB):
-    def __init__(self, source=[], target=[], weight=[], directed=True):
+    def __init__(self, source=[],  target=[], weight=[], directed=True):
         GraphKNNB.__init__(self, source, target, weight, directed)
 
     @staticmethod

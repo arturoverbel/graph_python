@@ -14,19 +14,15 @@ class DynamicGraph(Graph):
 
     def dynamic_decreasing_random_vertex(self):
 
-        count_max = 100
-        flag = 0
-        while True:
-            source = np.random.choice(self.vertex, 1)[0]
-            choisen = self.target[source == self.source]
-            if choisen.size != 0:
-                target = np.random.choice(choisen, 1)[0]
-                break
-            flag = flag + 1
-            if flag >= count_max:
-                return -2
+        node = np.random.choice(self.vertex, 1)[0]
+        choisen = self.target[node == self.source]
+        if choisen.size < 1:
+            choisen = self.source[node == self.target]
+            other_node = np.random.choice(choisen, 1)[0]
+            return self.dynamic_decreasing_vertex(other_node, node)
 
-        return self.dynamic_decreasing_vertex(source, target)
+        other_node = np.random.choice(choisen, 1)[0]
+        return self.dynamic_decreasing_vertex(node, other_node)
 
     def dynamic_decreasing_vertex(self, source, target):
 
@@ -47,22 +43,22 @@ class DynamicGraph(Graph):
 
     def dynamic_incremental_random_vertex(self, weights=[1, 2, 3, 4, 5, 6, 7, 8, 9]):
 
-        count_max = 100
-        flag = 0
-        while True:
-            source = np.random.choice(self.vertex, 1)[0]
-            index_for_target = np.invert(np.logical_or(np.in1d(self.vertex, self.target[source == self.source]), self.vertex == source))
-
-            choisen = self.vertex[index_for_target]
-            if choisen.size != 0:
-                target = np.random.choice(choisen, 1)[0]
-                break
-            flag = flag + 1
-            if flag >= count_max:
-                return -2
-
         w = np.random.choice(weights)
-        return self.dynamic_incremental_vertex(source, target, w)
+        node = np.random.choice(self.vertex, 1)[0]
+        index_for_target = np.invert(
+            np.logical_or(np.in1d(self.vertex, self.target[node == self.source]), self.vertex == node)
+        )
+        choisen = self.vertex[index_for_target]
+        if choisen.size < 1:
+            index_for_source = np.invert(
+                np.logical_or(np.in1d(self.vertex, self.source[node == self.target]), self.vertex == node)
+            )
+            choisen = self.vertex[index_for_source]
+            other_node = np.random.choice(choisen, 1)[0]
+            return self.dynamic_incremental_vertex(other_node, node, w)
+
+        other_node = np.random.choice(choisen, 1)[0]
+        return self.dynamic_incremental_vertex(node, other_node, w)
 
     def dynamic_incremental_vertex(self, source, target, weight=1):
 
@@ -102,23 +98,15 @@ class DynamicGraph(Graph):
             self.weight[np.logical_and(self.source == target, self.target == source)] = weight
 
         self.last_vertex_modified = np.array([source, target, weight])
-        return True
+        return self.last_vertex_modified
 
     def vertex_update_random(self, weight=1):
-        count_max = 100
-        flag = 0
-        while True:
-            source = np.random.choice(self.vertex, 1)[0]
-            index_for_target = np.logical_or(np.in1d(self.vertex, self.target[source == self.source]), self.vertex == source)
-            choisen = self.vertex[index_for_target]
+        node = np.random.choice(self.vertex, 1)[0]
+        choisen = self.target[node == self.source]
+        if choisen.size < 1:
+            choisen = self.source[node == self.target]
+            other_node = np.random.choice(choisen, 1)[0]
+            return self.vertex_update(other_node, node, weight=weight)
 
-            if choisen.size != 0:
-                target = np.random.choice(choisen, 1)[0]
-                if self.get_weight(source, target) > 1:
-                    break
-
-            flag = flag + 1
-            if flag >= count_max:
-                return -2
-
-        return self.vertex_update(source, target, weight=weight)
+        other_node = np.random.choice(choisen, 1)[0]
+        return self.vertex_update(node, other_node, weight=weight)
